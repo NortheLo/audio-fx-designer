@@ -8,6 +8,7 @@
 /*
     Implementation of the Feedback Network Reverberator from the Stautner/Puckette Paper, which can be found here:
     https://www.ee.columbia.edu/~dpwe/e4896/papers/StautP82-reverb.pdf
+    Block Diagram: https://ccrma.stanford.edu/~jos/pasp/img745.png
 */
 
 template <typename T, std::size_t Row, std::size_t Col>
