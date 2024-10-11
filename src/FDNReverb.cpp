@@ -2,7 +2,7 @@
 
 FDNReverb::FDNReverb(int delayLength) : delayLength(delayLength) {
 
-    // initialize empty delay lines
+    // initialize empty delay lines (fifo)
     for (unsigned int delayLineLength = 0; delayLineLength < M[0]; delayLineLength++) {
         firstDelayPath.push(0.f);
     }
