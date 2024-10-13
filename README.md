@@ -12,8 +12,11 @@ Step 2: Create makefile and build with   ``cmake .. && make``
 ### Audio Effect:
  - [x] Implement simple reverb algorithm
 
+### FX Design Utilities
+ - [x] Simple MATLAB/Octave Script to read .wav
+
 ### GUI: 
- - [ ] Design Main-Window with Glade
+ - [ ] Design Main-Window with Glade to tune paramters in realtime
  - [ ] Implement in-/output device selector
 
 ## Dependencies:
