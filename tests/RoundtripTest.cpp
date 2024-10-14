@@ -1,24 +1,22 @@
 #include <iostream>
-#include <unistd.h> // For UNIX sleep function; deprectaded but could be useful for OpenBSD port
 #include <cmath>
 
 #include "../include/AudioSystem.hpp"
-#include "../include/LowPass.hpp"
 
+/*
+    This test should feed back the incomming sound to the output device.
+*/
 
 int main() {
-    float* buf;
+    std::vector<float> buf;
+    buf.resize(FRAMES_PER_BUFFER);
+    
     AudioSystem audio = AudioSystem();
     audio.openAudio();
+
     while(Pa_IsStreamActive(audio.stream)) {
-
         buf = audio.getBuffer();
-        // for(size_t i = 0; i < 256; i++) {
-        //     lp.applyEffect(buf[i], buf[i]);
-        // }
-
-        audio.writeBuffer(buf, 256);
-        usleep(1); 
+        audio.writeBuffer(buf);
     }
     return 0;
 }

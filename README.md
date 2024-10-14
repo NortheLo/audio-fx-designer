@@ -21,7 +21,7 @@ Step 2: Create makefile and build with   ``cmake .. && make``
 
 ## Dependencies:
 All of the dependencies should be included in your distributors repos since all of them are quite standard packages for audio and gui programs. On OpenBSD those packages should be available under x11/ and audio/.
- - PortAudio
+ - PortAudio -> should be available as portaudio(-devel)
  - gtkmm & glibmm 
 
  ## Latency
