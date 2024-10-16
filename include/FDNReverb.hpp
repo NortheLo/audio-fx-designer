@@ -33,7 +33,7 @@ class FDNReverb {
         float d = 0.5;
 
         // the delay time of each feedback tap; offset of samples -> int 
-        std::array<int, 3> M = {100, 300, 500};
+        std::array<int, 3> M = {1, 3, 5};
 
         // coeff for input before mixing with feedback
         std::array<float, 3> b = {1.f, 1.f, 1.f};

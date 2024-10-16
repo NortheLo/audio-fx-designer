@@ -5,6 +5,7 @@ clc; clear all;
 file_name_impulse = "impulse.wav";
 file_name_response = "response.wav";
 
+% read *.wav files
 [samples_impulse, sample_rate_i] = audioread(file_name_impulse);
 [samples_response, sample_rate_r] = audioread(file_name_response);
 

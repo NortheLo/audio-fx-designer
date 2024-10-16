@@ -4,22 +4,12 @@
 
 #include "../include/FDNReverb.hpp"
 #include "../include/WavWriter.hpp"
+#include "../include/FuncGenerator.hpp"
 
 int main(int argc, char *argv[]) {
-    // create data buffer with impulse
-    std::vector<float> buf;
-    buf.resize(1000);
-
-    unsigned int index = 0;
-    for (auto& elem : buf) {
-        if (index == 0) {
-            elem = 1;
-        }
-        else {
-            elem = 0;
-        }
-        index++;
-    }
+    unsigned int bufLength = 1000;
+    Pulse pulse = Pulse(bufLength);
+    std::vector<float> buf = pulse.getSamples();
 
     std::filesystem::path impulsePath = "../tools/impulse.wav";
     WavWriter wavImpulse = WavWriter(impulsePath);
@@ -27,7 +17,7 @@ int main(int argc, char *argv[]) {
 
 
     // reverb settings 
-    int delayLength = 1000;
+    int delayLength = 5;
     FDNReverb reverb(delayLength);
 
     // move this into a dsp class
@@ -39,7 +29,5 @@ int main(int argc, char *argv[]) {
     WavWriter wavResponse = WavWriter(responsePath);
     wavResponse.writeData(buf);
     
-
-    std::cout << "End\n";
     return EXIT_SUCCESS;
 }

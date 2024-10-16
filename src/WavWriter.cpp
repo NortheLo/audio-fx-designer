@@ -1,5 +1,6 @@
 #include "../include/WavWriter.hpp"
 
+#include <iostream>
 #include <fstream>
 
 WavWriter::WavWriter(std::filesystem::path p, uint32_t samplingRate, uint16_t channels) : filePath(p) { 
@@ -19,6 +20,7 @@ int WavWriter::writeData(std::vector<float> dataPoints) {
     fwrite(&header, 1, sizeHeader, fp);
     fwrite(static_cast<void*>(dataPoints.data()), 2, payloadSize, fp);
     fclose(fp);
+    std::cout << "File written to: " << filePath.string() << std::endl;
     return 1;
 }
 
