@@ -1,6 +1,12 @@
 # About  
 This project should be a simple program, which reads input from an input device like your soundcard and apply your implemented audio effect and route it back to a desired output. 
 
+# Features
+- Routing of audio samples from any audio device (cross platform)
+- Signal Functions to inspect and test DSP implementation
+- Wav Filewriter to export samples to e.g. MATLAB/Octave/Python
+- MATLAB/Octave Scripts for debuging of C++ DSP implementations
+
 ## Build
 Step 1: Create build directory  ``mkdir build && cd build``  
 Step 2: Create makefile and build with   ``cmake .. && make``  
