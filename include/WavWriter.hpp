@@ -6,7 +6,7 @@
 
 typedef struct {
     uint8_t  RIFF[4] = {'R', 'I', 'F', 'F'};        // RIFF Header Magic header
-    uint32_t fileSize;                             // RIFF Chunk Size
+    uint32_t fileSize;                              // RIFF Chunk Size
     uint8_t  WAVE[4] = {'W', 'A', 'V', 'E'};        // WAVE Header
     uint8_t  fmt[4] = {'f', 'm', 't', ' '};         // FMT header
     uint32_t subchunksize = 16;                     // Size of the fmt chunk

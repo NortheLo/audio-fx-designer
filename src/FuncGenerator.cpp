@@ -3,18 +3,11 @@
 std::vector<float> Pulse::getSamples() {
     buf.resize(length);
 
-    unsigned int index = 0;
-    for (auto& elem : buf) {
-        if (index == 0) {
-            elem = 1.f;
-        }
-        else {
-            elem = 0.f;
-        }
-        
-        index++;
-    }
-
+    // set the conten to all 0.f
+    std::fill(buf.begin(), buf.end(), 0.f);
+    // set the impulse
+    buf[0] = 1.f;
+    
     return buf; 
 }
 
