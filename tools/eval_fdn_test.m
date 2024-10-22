@@ -9,7 +9,4 @@ file_name_response = "response.wav";
 [samples_impulse, sample_rate_i] = audioread(file_name_impulse);
 [samples_response, sample_rate_r] = audioread(file_name_response);
 
-assert (isequal(sample_rate_i, sample_rate_r), "Sample Rate missmatch!")
-
-plot_samples(samples_impulse, sample_rate_i)
-plot_samples(samples_response, sample_rate_r)
+plot_impulse_response(samples_impulse, sample_rate_i, samples_response, sample_rate_r)
