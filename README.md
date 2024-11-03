@@ -9,7 +9,8 @@ This project should be a simple program, which reads input from an input device 
 
 ## Build
 Step 1: Create build directory  ``mkdir build && cd build``  
-Step 2: Create makefile and build with   ``cmake .. && make``  
+Step 2: Create makefile and build with   ``cmake .. && make`` 
+Step 3: Install the testing library Catch2 in the libs/ directory. 
 
 ## To-Do:
 ### Build:

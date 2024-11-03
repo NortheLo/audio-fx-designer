@@ -2,3 +2,4 @@ build/*
 not_used/*
 *.wav
 .vscode/*
+lib/*

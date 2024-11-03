@@ -5,14 +5,11 @@
 #include "../include/AudioSystem.hpp"
 #include "../include/FDNReverb.hpp"
 
-int main(int argc, char *argv[]) {
+int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 
     // reverb settings 
     int delayLength = 1000;
     FDNReverb reverb(delayLength); // Create a reverb object
-
-    int sampleRate = SAMPLE_RATE;
-    float maxDelay = 3.f;
 
     std::vector<float> buf;
     buf.resize(FRAMES_PER_BUFFER);
@@ -24,7 +21,7 @@ int main(int argc, char *argv[]) {
 
         // move this into a dsp class
         for (size_t i = 0; i < buf.size(); i++) {
-            buf[i] = reverb.ProcessSample(buf[i]);
+            buf[i] = reverb.processSample(buf[i]);
         }
 
         audio.writeBuffer(buf);

@@ -25,3 +25,15 @@ std::vector<float> AWGN::getSamples() {
 
     return buf;
 }
+
+std::vector<float> SinTone::getSamples() {
+    buf.resize(length);
+
+    unsigned int t = 0;
+    for (auto& x : buf) {
+        x = amplitude * sin((2 * M_PI * frequency * t) / sampleRate);
+        t++;
+    }
+
+    return buf;
+}

@@ -123,6 +123,9 @@ int AudioSystem::audioCallback(const void *inputBuffer,
     float* in = (float*) inputBuffer;       //Replace with C++ style cast
     float* out = static_cast<float*>(outputBuffer);
     std::unique_lock<std::mutex> ul(mu);
+
+    [[maybe_unused]] const PaStreamCallbackTimeInfo* info = timeInfo;
+    [[maybe_unused]] PaStreamCallbackFlags flags = statusFlags;
     
     /* For writing the data from the microphone */
     for (size_t i = 0; i < framesPerBuffer; i++) {

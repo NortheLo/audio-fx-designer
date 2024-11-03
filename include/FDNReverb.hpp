@@ -19,7 +19,7 @@ class FDNReverb {
 
         FDNReverb(int delayLength);
 
-        float ProcessSample(float input);
+        float processSample(float input);
 
     private:
         // maybe as parameter to tune M?

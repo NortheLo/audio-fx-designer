@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
     // move this into a dsp class
     for (size_t i = 0; i < buf.size(); i++) {
-        buf[i] = reverb.ProcessSample(buf[i]);
+        buf[i] = reverb.processSample(buf[i]);
     }
 
     std::filesystem::path responsePath = "../tools/response.wav";

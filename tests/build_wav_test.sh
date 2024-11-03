@@ -1,1 +1,1 @@
-g++ wavWriterTest.cpp ../src/WavWriter.cpp -o wavWriterTest -g
+g++ ../tests/wavWriterTest.cpp ../src/WavWriter.cpp -o wavWriterTest -g

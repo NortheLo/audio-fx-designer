@@ -3,21 +3,21 @@
 FDNReverb::FDNReverb(int delayLength) : delayLength(delayLength) {
 
     // initialize empty delay lines (fifo)
-    for (unsigned int delayLineLength = 0; delayLineLength < M[0]; delayLineLength++) {
+    for (int delayLineLength = 0; delayLineLength < M[0]; delayLineLength++) {
         firstDelayPath.push(0.f);
     }
 
-    for (unsigned int delayLineLength = 0; delayLineLength < M[1]; delayLineLength++) {
+    for (int delayLineLength = 0; delayLineLength < M[1]; delayLineLength++) {
         secondDelayPath.push(0.f);
     }
 
-    for (unsigned int delayLineLength = 0; delayLineLength < M[2]; delayLineLength++) {
+    for (int delayLineLength = 0; delayLineLength < M[2]; delayLineLength++) {
         thirdDelayPath.push(0.f);
     }
 
  }
 
-float FDNReverb::ProcessSample(float input) {
+float FDNReverb::processSample(float input) {
     std::array<float, 4> x = { input * b[0], input * b[1], input * b[2], input * d};
     
     // perform add with feedback values

@@ -35,3 +35,15 @@ class AWGN : public SignalFunction {
         ~AWGN() { };
         std::vector<float> getSamples();
 };
+
+class SinTone : public SignalFunction {
+    private:
+        float sampleRate = 44100;
+        double frequency = 440.f;
+        double amplitude = 1.f;
+    public:
+        SinTone(unsigned int length, float sampleRate, double frequency, double amplitude) 
+        : SignalFunction(length), sampleRate(sampleRate), frequency(frequency), amplitude(amplitude) { };
+        ~SinTone() { };
+        std::vector<float> getSamples();
+};
