@@ -20,8 +20,7 @@ typedef struct {
     uint32_t dataSize;                              // Sampled data length
 } wavHeader;
 
-class WavWriter
-{
+class WavWriter {
     public:
         WavWriter(std::filesystem::path p) : filePath(p) { };
         ~WavWriter() { };
@@ -29,6 +28,8 @@ class WavWriter
         int writeData(std::vector<float> dataPoints, uint32_t samplingRate = 48000, uint16_t channels = 1);
         std::vector<float> readData();
         
+        wavHeader getHeader() { return header; };
+
     private:
         std::filesystem::path filePath;
         wavHeader header;

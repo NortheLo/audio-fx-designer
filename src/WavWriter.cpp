@@ -26,19 +26,24 @@ std::vector<float> WavWriter::readData() {
     // fill in self.header
     // fill vector with payload
 
-    FILE* fp;
-    fp = fopen(filePath.c_str(), "rb");
+    std::ifstream file(filePath, std::ios::binary);
 
-    while (1) {
-        fread(&header, sizeof(header), 1, fp);
-        if(feof(fp)) {
-            break;
-        }
+    file.read(reinterpret_cast<char*>(&header), sizeof(header));
+
+    std::cout << header.dataSize + sizeHeader << " Bytes loaded from " << filePath.string() << std::endl;
+    std::cout << "Audio Format:\t" << header.audioFormat << "\nSample Rate:\t" << header.samplingRate << "\nChannels:\t" << header.channels << "\n";
+
+    /* this only holds true for float data */
+    unsigned int numberSamples = header.dataSize / 4;
+    std::vector<float> audioData ;
+    audioData.reserve(numberSamples);
+
+    float sample = 0.f;
+
+    for (unsigned int i = 0; i < numberSamples; ++i) {
+        file.read(reinterpret_cast<char*>(&sample), sizeof(sample));
+        audioData.push_back(sample); // Normalize to range [-1, 1]
     }
 
-    // not working because we are not considering the riff chunk size
-    std::cout << header.audioFormat << std::endl << header.samplingRate << std::endl;
-
-    std::vector<float> hi = {0.f};
-    return hi;
+    return audioData;
 }

@@ -27,6 +27,7 @@ endfunction()
 # Add test executables
 add_test_executable(SignalFuncTest tests/SignalFuncTest.cpp src/FuncGenerator.cpp)
 add_test_executable(FilterTest tests/FilterTest.cpp src/Filter.cpp src/FuncGenerator.cpp)
+add_test_executable(WavReaderTest tests/wavReaderTest.cpp src/WavWriter.cpp)
 
 # Add the main application executable
 add_executable(audio-fx-designer src/main.cpp src/AudioSystem.cpp src/WavWriter.cpp src/FDNReverb.cpp src/FuncGenerator.cpp)
