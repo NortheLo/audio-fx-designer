@@ -29,7 +29,8 @@ Step 3: Install the testing library Catch2 in the libs/ directory.
 ## Dependencies:
 All of the dependencies should be included in your distributors repos since all of them are quite standard packages for audio and gui programs. On OpenBSD those packages should be available under x11/ and audio/.
  - PortAudio -> should be available as portaudio(-devel)
- - gtkmm & glibmm 
+ - libasan for Debug build 
+ - gtkmm & glibmm (unused right now)
 
  ## Latency
  For low-latency you have to generate the Makefile with ``cmake .. -DCMAKE_BUILD_TYPE=Release``. Otherwise one will experience noticeable latency.

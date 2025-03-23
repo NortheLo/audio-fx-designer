@@ -24,9 +24,11 @@ class WavWriter
 {
     public:
         WavWriter(std::filesystem::path p, uint32_t samplingRate = 48000, uint16_t channels = 1);
+        ~WavWriter() { };
+
         int writeData(std::vector<float> dataPoints);
-        // std::vector<float> readData();
-        ~WavWriter();
+        std::vector<float> readData();
+        
     private:
         std::filesystem::path filePath;
         wavHeader header;

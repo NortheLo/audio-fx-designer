@@ -23,23 +23,20 @@ int WavWriter::writeData(std::vector<float> dataPoints) {
     return 1;
 }
 
-// std::vector<float> WavWriter::readData() {
-//     FILE* fp;
-//     fp = fopen(filePath.c_str(), "rb");
+std::vector<float> WavWriter::readData() {
+    FILE* fp;
+    fp = fopen(filePath.c_str(), "rb");
 
-//     while (1) {
-//         fread(&header, sizeof(header), 1, fp);
-//         if(feof(fp)) {
-//             break;
-//         }
-//     }
+    while (1) {
+        fread(&header, sizeof(header), 1, fp);
+        if(feof(fp)) {
+            break;
+        }
+    }
 
-//     // not working because we are not considering the riff chunk size
-//     std::cout << header.audioFormat << std::endl << header.samplingRate << std::endl;
+    // not working because we are not considering the riff chunk size
+    std::cout << header.audioFormat << std::endl << header.samplingRate << std::endl;
 
-//     std::vector<float> hi = {0.f};
-//     return hi;
-// }
-
-WavWriter::~WavWriter() {
+    std::vector<float> hi = {0.f};
+    return hi;
 }

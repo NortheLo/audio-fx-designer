@@ -12,11 +12,12 @@ assert (length(x) == length(samples))
 
 y = filter(b,a,x);
 
-idx = 1
+idx = 1;
 prec = 1e-6;
 for i = y
   assert ( (abs(i(idx) - samples(idx)) < prec ), "Should be %f, but is %f\n", i, samples(idx));
-  idx += 1;
+  idx = idx + 1;
  end
 
  fprintf("FIR is correct\n");
+
