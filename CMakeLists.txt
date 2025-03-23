@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -Wpedantic -Wnull-dereference")
 
 # Specify separate flags for different build types
-set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address -lasan")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 # Find required packages

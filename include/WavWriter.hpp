@@ -23,10 +23,10 @@ typedef struct {
 class WavWriter
 {
     public:
-        WavWriter(std::filesystem::path p, uint32_t samplingRate = 48000, uint16_t channels = 1);
+        WavWriter(std::filesystem::path p) : filePath(p) { };
         ~WavWriter() { };
 
-        int writeData(std::vector<float> dataPoints);
+        int writeData(std::vector<float> dataPoints, uint32_t samplingRate = 48000, uint16_t channels = 1);
         std::vector<float> readData();
         
     private:
